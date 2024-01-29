@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="simple">
+      <input type="text" id="a" v-bind:value="message">
+      <br />
+      <!-- <img v-bind:src="imagePath" /> -->
+      <img :src="imagePath" />
+    </div>
+    <script type="text/javascript">
+        var model = {
+          message : 'v-bind 디렉티브',
+          imagePath : "https://cdn.pixabay.com/photo/2023/11/07/10/08/dog-8371778_1280.png"
+        };
+
+        var simple = new Vue({
+          el : '#simple',
+          data : model
+        })
+    </script>
+</body>
+</html>
