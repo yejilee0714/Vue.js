@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+    <style>
+      #list { width: 400px; border: 1px solid black; border-collapse:collapse; }
+      #list td, #list th { border: 1px solid black; text-align:center; }
+      #list > thead > tr { color: yellow; background-color: purple; }
+      .divider { height: 2px; background-color: gray; }
+    </style>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+  <div id="example">
+    <table id="list">
+      <thead>
+        <tr>
+          <th>번호</th><th>이름</th><th>전화번호</th><th>주소</th>
+        </tr>
+      </thead>
+      <tbody id="contacts">
+        <template v-for="(contact, index) in contacts">
+          <tr :key="contact.no">
+            <td>{{contact.no}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.tel}}</td>
+            <td>{{contact.address}}</td>
+          </tr>
+          <tr class="divider" v-if="index % 5 === 4">
+            <td colspan="4"></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+  <script type="text/javascript">
+    var model = {
+      "pageno" : 1,
+      "pagesize": 10,
+      "totalcount": 100,
+      "contacts": [
+        {"no": 100, "name": "aaa", "tel": "010-1234-1111", "address": "서울"},
+        {"no": 101, "name": "bbb", "tel": "010-1234-1112", "address": "대구"},
+        {"no": 102, "name": "ccc", "tel": "010-1234-1113", "address": "서울"},
+        {"no": 103, "name": "ddd", "tel": "010-1234-1114", "address": "부산"},
+        {"no": 104, "name": "eee", "tel": "010-1234-1115", "address": "서울"},
+        {"no": 105, "name": "fff", "tel": "010-1234-1116", "address": "경기"},
+        {"no": 106, "name": "ggg", "tel": "010-1234-1117", "address": "대구"}
+      ]
+    }
+
+    var list = new Vue({
+      el : "#example",
+      data : model
+    });
+    </script>
+</body>
+</html>
