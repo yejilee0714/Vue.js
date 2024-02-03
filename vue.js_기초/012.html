@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>v-once</title>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="example">
+      <!-- 초깃값 주어지면 변경되지 않음, 다시 렌더링하지 않음 -->
+      <span v-once>{{message}}</span>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+          el : "#example",
+          data : {
+            message : "Hello World"
+          }
+        })
+    </script>
+</body>
+</html>
