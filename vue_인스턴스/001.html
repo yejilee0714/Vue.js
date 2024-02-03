@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>el, data, computed</title>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="test">
+      {{name}}
+    </div>
+    <script type="text/javascript">
+        var model = {
+          name : "홍길동"
+        }
+        var vm = new Vue({
+          el : '#test',
+          data: model
+        })
+        // vm.name = model.name = vm.$data.name
+    </script>
+</body>
+</html>
